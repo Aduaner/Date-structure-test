@@ -5,4 +5,4 @@ if i==1:
 else:
     i=4
 print(i)
-print(i)
+print(i+1)
