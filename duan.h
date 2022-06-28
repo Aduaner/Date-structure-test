@@ -4,7 +4,7 @@ using namespace std;
 #define InitSize 100
 #define ElemType int
 
-namespace orderline{ 
+namespace duan{
     //线性表结构体
     typedef struct{
         ElemType *data;
@@ -118,5 +118,15 @@ namespace orderline{
             }
         }
         return min_index+1;
+    }
+
+    //顺序表倒置
+    void Reverse(SeqList &L){
+        ElemType temp;
+        for(int i=0; i<L.length/2; i++){
+            temp=L.data[i];
+            L.data[i]= L.data[L.length-i-1];
+            L.data[L.length-i-1]=temp;
+        }
     }
 }
