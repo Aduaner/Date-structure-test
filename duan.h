@@ -6,6 +6,7 @@
 #include<ctime>
 using namespace std;
 #define InitSize 100
+
 typedef int ElemType;
 
 namespace duan{
@@ -15,11 +16,36 @@ namespace duan{
         int MaxSize,length;
     } SeqList;
 
+    //单链表定义
+    typedef struct{
+        ElemType data;
+        struct LNode *next;
+    }LNode,*LinkList;
+
+    //双链表定义
+    typedef struct{
+        ElemType data;
+        struct DNode *prior,*next;
+    }DNode,*DLinkList;
+
+    //静态链表定义
+    typedef struct{
+        ElemType data;
+        int next;
+    }SLinkList[InitSize];
+
+
     //线性表初始化
     void InitList(SeqList &L){
         L.data = new ElemType[InitSize];
         L.length =0;
         L.MaxSize = InitSize;//最大长度为初始设定
+    }
+
+    //单链表表初始化(with head)
+    void InitLinkList(LinkList &L){
+        L = (LNode*)malloc(sizeof(LNode));
+        L->next = NULL;
     }
 
     //线性表长度
